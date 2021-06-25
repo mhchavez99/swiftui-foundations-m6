@@ -8,18 +8,20 @@
 import Foundation
 
 
-struct BusinessSearch: Decodable{
+struct BusinessSearch: Decodable {
+    
     var businesses = [Business]()
     var total = 0
     var region = Region()
 }
 
-struct Region: Decodable{
-    
+struct Region: Decodable {
     var center = Coordinate()
 }
 
-struct Business: Decodable{
+
+struct Business: Decodable, Identifiable {
+    
     var id: String?
     var alias: String?
     var name: String?
@@ -38,17 +40,7 @@ struct Business: Decodable{
     var distance: Double?
 }
 
-struct Category: Decodable {
-    var alias: String?
-    var title: String?
-}
-
-struct Coordinate: Decodable{
-    var latitude: Double?
-    var longitude: Double?
-}
-
-struct Location: Decodable{
+struct Location: Decodable {
     var address1: String?
     var address2: String?
     var address3: String?
@@ -57,4 +49,14 @@ struct Location: Decodable{
     var country: String?
     var state: String?
     var display_address: [String]?
+}
+
+struct Category: Decodable {
+    var alias: String?
+    var title: String?
+}
+
+struct Coordinate: Decodable {
+    var latitude: Double?
+    var longitude: Double?
 }

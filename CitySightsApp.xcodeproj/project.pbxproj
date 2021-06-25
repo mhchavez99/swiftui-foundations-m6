@@ -14,6 +14,10 @@
 		9CD268D62685042F003966BA /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD268D52685042F003966BA /* ContentModel.swift */; };
 		9CD268D8268628B2003966BA /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD268D7268628B2003966BA /* Business.swift */; };
 		9CD268DB26863220003966BA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD268DA26863220003966BA /* Constants.swift */; };
+		9CD268E026863B4F003966BA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD268DF26863B4F003966BA /* HomeView.swift */; };
+		9CD268E3268641D3003966BA /* BusinessList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD268E2268641D3003966BA /* BusinessList.swift */; };
+		9CD268E526865CEA003966BA /* BusinessSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD268E426865CEA003966BA /* BusinessSectionHeader.swift */; };
+		9CD268E726865F15003966BA /* BusinessSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD268E626865F15003966BA /* BusinessSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		9CD268D52685042F003966BA /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
 		9CD268D7268628B2003966BA /* Business.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		9CD268DA26863220003966BA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9CD268DF26863B4F003966BA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		9CD268E2268641D3003966BA /* BusinessList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessList.swift; sourceTree = "<group>"; };
+		9CD268E426865CEA003966BA /* BusinessSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSectionHeader.swift; sourceTree = "<group>"; };
+		9CD268E626865F15003966BA /* BusinessSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +106,9 @@
 			isa = PBXGroup;
 			children = (
 				9CD268C5268501F3003966BA /* LaunchView.swift */,
+				9CD268DE26863B3C003966BA /* Home */,
+				9CD268DD26863B33003966BA /* Denied */,
+				9CD268DC26863B29003966BA /* Onboarding */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -108,6 +119,39 @@
 				9CD268DA26863220003966BA /* Constants.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		9CD268DC26863B29003966BA /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		9CD268DD26863B33003966BA /* Denied */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Denied;
+			sourceTree = "<group>";
+		};
+		9CD268DE26863B3C003966BA /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				9CD268DF26863B4F003966BA /* HomeView.swift */,
+				9CD268E1268641A5003966BA /* List */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		9CD268E1268641A5003966BA /* List */ = {
+			isa = PBXGroup;
+			children = (
+				9CD268E2268641D3003966BA /* BusinessList.swift */,
+				9CD268E426865CEA003966BA /* BusinessSectionHeader.swift */,
+				9CD268E626865F15003966BA /* BusinessSection.swift */,
+			);
+			path = List;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,10 +223,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CD268E526865CEA003966BA /* BusinessSectionHeader.swift in Sources */,
+				9CD268E726865F15003966BA /* BusinessSection.swift in Sources */,
 				9CD268DB26863220003966BA /* Constants.swift in Sources */,
 				9CD268C6268501F3003966BA /* LaunchView.swift in Sources */,
 				9CD268D8268628B2003966BA /* Business.swift in Sources */,
+				9CD268E026863B4F003966BA /* HomeView.swift in Sources */,
 				9CD268C4268501F3003966BA /* CitySightsApp.swift in Sources */,
+				9CD268E3268641D3003966BA /* BusinessList.swift in Sources */,
 				9CD268D62685042F003966BA /* ContentModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

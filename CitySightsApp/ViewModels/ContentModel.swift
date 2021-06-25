@@ -15,6 +15,7 @@ class ContentModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     @Published var restaurants = [Business]()
     @Published var sights = [Business]()
+    @Published var authorizationState = CLAuthorizationStatus.notDetermined
     
     override init (){
         super.init()
@@ -31,6 +32,9 @@ class ContentModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     // MARK: - Location Manager Delegate Methods
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        
+        //update authorization state property
+        authorizationState = locationManager.authorizationStatus
         
         if locationManager.authorizationStatus == .authorizedAlways ||
             locationManager.authorizationStatus == .authorizedWhenInUse{
@@ -108,6 +112,7 @@ class ContentModel: NSObject, ObservableObject, CLLocationManagerDelegate {
                         }
                     }catch{
                         print(error)
+                        print("failed to decode json data")
                     }
                     
                     
