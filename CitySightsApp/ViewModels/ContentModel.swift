@@ -41,14 +41,63 @@ class ContentModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         //gives us the location of the user
-        print(locations.first ?? "no location")
         
+        let userLocation = locations.first
         
-        //stop requesting the location after we get it once
-        locationManager.stopUpdatingLocation()
+        if userLocation != nil{
+            //we have a location
+            //stop geolocation
+            locationManager.stopUpdatingLocation()
+            
+            //if we have coordinates, send them into yelp api
+            //getBusinesses(category: "arts", location: userLocation!)
+            getBusinesses(category: "restaurants", location: userLocation!)
+        }
         
-        //TODO: if we have the coordinates of the user, send to yelp api
-        
+         
     }
     
+    //MARK: Yelp api methods
+    func getBusinesses(category: String, location: CLLocation){
+        
+        //create URL
+        /*
+        let urlString = "https://api.yelp.com/v3/businesses/search?latitude=\(location.coordinate.latitude)&longitude=\(location.coordinate.longitude)&categories=\(category)&limit=6"
+        let url = URL(string: urlString
+        */
+        
+        var urlComponents = URLComponents(string: "https://api.yelp.com/v3/businesses/search")
+        urlComponents?.queryItems = [
+            URLQueryItem(name: "latitude", value: String(location.coordinate.latitude)),
+            URLQueryItem(name: "longitude",  value: String(location.coordinate.longitude)),
+            URLQueryItem(name: "categories", value: category),
+            URLQueryItem(name: "limit", value: "6")
+        ]
+        
+        if let url = urlComponents?.url{
+            //create url request
+            var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10.0)
+            request.httpMethod = "GET"
+            request.addValue("Bearer UY_4gXwiiTzkqnHE9YuZ2-uKOdyY0k-EbkI-iSZjCOCkuCcjb4RHh4bCpdiWRjb9vSyc-W2BbtEv4N5gGfrpyEmOughWpGal_NFE4Xj_ETJjClt6EWAG561Gn9zVYHYx", forHTTPHeaderField: "Authorization")
+            
+            //get url session
+            let session = URLSession.shared
+            
+            //create data task
+            let dataTask = session.dataTask(with: request) { data, response, error in
+                //check that there isn't an error
+                if error == nil{
+                    print(response)
+                }
+            }
+            //start the data task
+            dataTask.resume()
+            
+        }
+        
+        
+        
+        
+        
+    }
 }
