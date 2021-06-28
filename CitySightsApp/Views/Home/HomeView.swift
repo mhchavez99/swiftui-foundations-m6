@@ -18,7 +18,7 @@ struct HomeView: View {
         if model.sights.count != 0 || model.restaurants.count != 0{
             
             NavigationView{
-             
+                
                 //determine if we should show list or map
                 if !isMapShowing{
                     //show list
@@ -43,15 +43,37 @@ struct HomeView: View {
                     
                 }
                 else{
-                    // show map
-                    BusinessMap(selectedBusiness: $selectedBusiness)
-                        .ignoresSafeArea()
-                        .sheet(item: $selectedBusiness) { business in
-                            //create business detail instance
-                            //pass selected instace
-                            
-                            BusinessDetail(business: business)
+                    
+                    ZStack(alignment: .top){
+                        
+                        // show map
+                        BusinessMap(selectedBusiness: $selectedBusiness)
+                            .ignoresSafeArea()
+                            .sheet(item: $selectedBusiness) { business in
+                                //create business detail instance
+                                //pass selected instace
+                                
+                                BusinessDetail(business: business)
+                            }
+                        //Rectangle overlay
+                        ZStack{
+                            Rectangle()
+                                .foregroundColor(.white)
+                                .cornerRadius(5)
+                                .frame(height: 48)
+                            HStack{
+                                Image(systemName: "location")
+                                Text("San Francisco")
+                                Spacer()
+                                
+                                Button("Switch to list view") {
+                                    self.isMapShowing = false
+                                }
+                            }
+                            .padding()
                         }
+                        .padding()
+                    }
                 }
             }
             
