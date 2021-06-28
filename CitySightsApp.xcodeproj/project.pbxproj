@@ -20,6 +20,7 @@
 		9CD268E726865F15003966BA /* BusinessSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD268E626865F15003966BA /* BusinessSection.swift */; };
 		9CD268E9268666B7003966BA /* BusinessRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD268E8268666B7003966BA /* BusinessRow.swift */; };
 		9CD268EC2689F466003966BA /* BusinessDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD268EB2689F466003966BA /* BusinessDetail.swift */; };
+		9CD268EF268A04AD003966BA /* BusinessMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD268EE268A04AD003966BA /* BusinessMap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		9CD268E626865F15003966BA /* BusinessSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSection.swift; sourceTree = "<group>"; };
 		9CD268E8268666B7003966BA /* BusinessRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessRow.swift; sourceTree = "<group>"; };
 		9CD268EB2689F466003966BA /* BusinessDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDetail.swift; sourceTree = "<group>"; };
+		9CD268EE268A04AD003966BA /* BusinessMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessMap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				9CD268DF26863B4F003966BA /* HomeView.swift */,
+				9CD268ED268A048F003966BA /* Map */,
 				9CD268E1268641A5003966BA /* List */,
 			);
 			path = Home;
@@ -166,6 +169,14 @@
 				9CD268EB2689F466003966BA /* BusinessDetail.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		9CD268ED268A048F003966BA /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				9CD268EE268A04AD003966BA /* BusinessMap.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,6 +258,7 @@
 				9CD268E9268666B7003966BA /* BusinessRow.swift in Sources */,
 				9CD268C4268501F3003966BA /* CitySightsApp.swift in Sources */,
 				9CD268E3268641D3003966BA /* BusinessList.swift in Sources */,
+				9CD268EF268A04AD003966BA /* BusinessMap.swift in Sources */,
 				9CD268D62685042F003966BA /* ContentModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
