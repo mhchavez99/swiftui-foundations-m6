@@ -13,4 +13,6 @@ struct Constants{
     static var restaurantsKey = "restaurants"
     static var sightsKey = "arts"
     static var annotationReuseId = "business"
+    
+    static var detailsURL = "https://api.yelp.com/v3/businesses/"
 }

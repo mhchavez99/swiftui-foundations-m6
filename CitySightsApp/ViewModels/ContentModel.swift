@@ -121,8 +121,10 @@ class ContentModel: NSObject, ObservableObject, CLLocationManagerDelegate {
                         
                         
                         //call the get image function on the businesses
+                        //call getIsOpen for each business
                         for b in businesses {
                             b.getImageData()
+                            b.getIsOpen()
                         }
                         
                         DispatchQueue.main.async {

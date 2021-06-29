@@ -40,6 +40,7 @@ class Business: Decodable, Identifiable, ObservableObject {
     var phone: String?
     var displayPhone: String?
     var distance: Double?
+    var isOpen: Bool?
     
     enum CodingKeys: String, CodingKey{
         case imageUrl = "image_url"
@@ -58,6 +59,51 @@ class Business: Decodable, Identifiable, ObservableObject {
         case location
         case phone
         case distance
+        
+    }
+    
+    func getIsOpen(){
+        
+        guard id != nil else{
+            return
+        }
+        
+        if let url = URL(string: Constants.detailsURL + id!){
+        
+            var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10.0)
+            request.httpMethod = "GET"
+            request.addValue("Bearer \(Constants.apiKey)", forHTTPHeaderField: "Authorization")
+            
+            let session = URLSession.shared
+            
+            let dataTask = session.dataTask(with: request) { data, response, error in
+                
+                if error == nil{
+                    do{
+                        let decoder = JSONDecoder()
+                        let result = try decoder.decode(BusinessDetails.self, from: data!)
+                        
+                        if result.hours != nil && result.hours!.count > 0{
+                            
+                            DispatchQueue.main.async {
+                                self.isOpen = result.hours![0].is_open_now
+                            }
+                        }
+                        
+                        
+                        
+                    }catch{
+                        print(error)
+                        print("failed to decode json data")
+                    }
+                    
+                }
+            }
+            
+            dataTask.resume()
+            
+            
+        }
         
     }
     
@@ -123,3 +169,14 @@ struct Coordinate: Decodable {
     var latitude: Double?
     var longitude: Double?
 }
+
+
+
+struct BusinessDetails: Decodable{
+    var hours:[HourInfo]?
+}
+
+struct HourInfo: Decodable{
+    var is_open_now:Bool?
+}
+

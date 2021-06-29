@@ -36,8 +36,8 @@ struct BusinessDetail: View {
                     
                     Rectangle()
                         .frame(height: 36)
-                        .foregroundColor(business.isClosed! ? .gray : .blue)
-                    Text(business.isClosed! ? "Closed" : "Open")
+                        .foregroundColor(business.isOpen ?? false ? .blue : .gray)
+                    Text(business.isOpen ?? false ? "Open" : "Closed")
                         .foregroundColor(.white)
                         .bold()
                         .padding(.leading)
