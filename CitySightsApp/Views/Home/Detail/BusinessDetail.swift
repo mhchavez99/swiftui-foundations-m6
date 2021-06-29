@@ -37,7 +37,7 @@ struct BusinessDetail: View {
                     Rectangle()
                         .frame(height: 36)
                         .foregroundColor(business.isClosed! ? .gray : .blue)
-                    Text(!business.isClosed! ? "Closed" : "Open")
+                    Text(business.isClosed! ? "Closed" : "Open")
                         .foregroundColor(.white)
                         .bold()
                         .padding(.leading)
@@ -47,10 +47,15 @@ struct BusinessDetail: View {
         
             Group{
                
-                BusinessTitle(business: business)
-                    .padding()
+                HStack {
+                    BusinessTitle(business: business)
+                        .padding()
+                    Spacer()
+                    YelpAttribution(link: business.url ?? "https://yelp.com")
+                }
                 
-                Divider()
+                DashedDivider()
+                    .padding(.horizontal)
                 
                 //phone
                 HStack{
@@ -62,7 +67,8 @@ struct BusinessDetail: View {
                 }
                 .padding()
                 
-                Divider()
+                DashedDivider()
+                    .padding(.horizontal)
                 
                 //reviews
                 HStack{
@@ -74,7 +80,8 @@ struct BusinessDetail: View {
                 }
                 .padding()
                 
-                Divider()
+                DashedDivider()
+                    .padding(.horizontal)
                 
                 //website
                 HStack{
@@ -87,7 +94,8 @@ struct BusinessDetail: View {
                 }
                 .padding()
                 
-                Divider()
+                DashedDivider()
+                    .padding(.horizontal)
                 
             }
             
@@ -114,6 +122,7 @@ struct BusinessDetail: View {
             }
             
         }
+        
     }
 }
 
