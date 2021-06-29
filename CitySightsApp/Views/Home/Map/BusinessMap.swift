@@ -103,6 +103,7 @@ struct BusinessMap: UIViewRepresentable{
         }
         
         func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+            
             //user tapped on the annotation view
             
             //get the business object that this annotatioin represents

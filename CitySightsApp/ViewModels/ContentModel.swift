@@ -22,12 +22,11 @@ class ContentModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         
         //set content model as the delegate of the location manager
         locationManager.delegate = self
-        
+    }
+    
+    func requestGeolocationPermission(){
         //Request permission from the user
-        locationManager.requestWhenInUseAuthorization()
-        
-       
-        
+                locationManager.requestWhenInUseAuthorization()
     }
     
     // MARK: - Location Manager Delegate Methods
@@ -78,7 +77,7 @@ class ContentModel: NSObject, ObservableObject, CLLocationManagerDelegate {
             URLQueryItem(name: "latitude", value: String(location.coordinate.latitude)),
             URLQueryItem(name: "longitude",  value: String(location.coordinate.longitude)),
             URLQueryItem(name: "categories", value: category),
-            URLQueryItem(name: "limit", value: "6")
+            URLQueryItem(name: "limit", value: "10")
         ]
         
         if let url = urlComponents?.url{

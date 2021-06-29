@@ -50,9 +50,9 @@ struct HomeView: View {
                         BusinessMap(selectedBusiness: $selectedBusiness)
                             .ignoresSafeArea()
                             .sheet(item: $selectedBusiness) { business in
+                                
                                 //create business detail instance
                                 //pass selected instace
-                                
                                 BusinessDetail(business: business)
                             }
                         //Rectangle overlay
